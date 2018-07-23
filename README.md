@@ -5,16 +5,16 @@ MFuzz project
 
 Dataset should consist of the vectors containing the following types of values:
 
-| Mutation                      | Write Offset   | Byte / Value ID        | Length         | Read Offset    | Seed ID | Coverage |
-| ----------------------------- | -------------- | ---------------------- | -------------- | -------------- | ------- | -------- |
-| `EraseBytes`                  | `0-SampleSize` | -                      | `0-SampleSize` | `0-SampleSize` | `0-N`   | `0-M`    |
-| `InsertByte`                  | `0-SampleSize` | `0-255`                | `1`            | -              | `0-N`   | `0-M`    |
-| `InsertRepeatedBytes`         | `0-SampleSize` | `0-255`                | `0-SampleSize` | -              | `0-N`   | `0-M`    |
-| `ChangeByte`                  | `0-SampleSize` | `0-255`                | `1`            | -              | `0-N`   | `0-M`    |
-| `ChangeBit`                   | `0-SampleSize` | `0-7`, (upscale)       | `1`            | -              | `0-N`   | `0-M`    |
-| `ShuffleBytes *`              | `0-SampleSize` | `0-255` (rand seed)    | `0-SampleSize` | `0-SampleSize` | `0-N`   | `0-M`    |
-| `CopyPart`                    | `0-SampleSize` | -                      | `0-SampleSize` | `0-SampleSize` | `0-N`   | `0-M`    |
-| `AddWordFromManualDictionary` | `0-SampleSize` | `0-DictSize` (upscale) | `len(word)`    | -              | `0-N`   | `0-M`    |
+| Mutation                      | Write Offset   | Byte / Value ID        | Length         | Read Offset    |
+| ----------------------------- | -------------- | ---------------------- | -------------- | -------------- |
+| `EraseBytes`                  | `0-SampleSize` | -                      | `0-SampleSize` | `0-SampleSize` |
+| `InsertByte`                  | `0-SampleSize` | `0-255`                | `1`            | -              |
+| `InsertRepeatedBytes`         | `0-SampleSize` | `0-255`                | `0-SampleSize` | -              |
+| `ChangeByte`                  | `0-SampleSize` | `0-255`                | `1`            | -              |
+| `ChangeBit`                   | `0-SampleSize` | `0-7`, (upscale)       | `1`            | -              |
+| `ShuffleBytes *`              | `0-SampleSize` | `0-255` (rand seed)    | `0-SampleSize` | `0-SampleSize` |
+| `CopyPart`                    | `0-SampleSize` | -                      | `0-SampleSize` | `0-SampleSize` |
+| `AddWordFromManualDictionary` | `0-SampleSize` | `0-DictSize` (upscale) | `len(word)`    | -              |
 
 
 Multiple mutations can be sequentially applied to the same seed input. Actually, it's encouraged to have long mutation sequences

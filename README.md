@@ -17,6 +17,12 @@ Dataset should consist of the vectors containing the following types of values:
 | `AddWordFromManualDictionary` | `0-SampleSize` | `0-DictSize` (upscale) | `len(word)`    | -              |
 
 
+We would also need to record the following values:
+
+* Seed ID: `0-N`
+* Coverage: `0-M`
+
+
 Multiple mutations can be sequentially applied to the same seed input. Actually, it's encouraged to have long mutation sequences
 as well as short ones. LibFuzzer's `-mutate_depth=` option can be used to increase the default value (`5`).
 

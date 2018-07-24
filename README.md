@@ -5,16 +5,16 @@ MFuzz project
 
 Dataset should consist of the vectors containing the following types of values:
 
-| Mutation                      | Write Offset   | Byte / Value ID        | Length         | Read Offset    |
-| ----------------------------- | -------------- | ---------------------- | -------------- | -------------- |
-| `EraseBytes`                  | `0-SampleSize` | -                      | `0-SampleSize` | `0-SampleSize` |
-| `InsertByte`                  | `0-SampleSize` | `0-255`                | `1`            | -              |
-| `InsertRepeatedBytes`         | `0-SampleSize` | `0-255`                | `0-SampleSize` | -              |
-| `ChangeByte`                  | `0-SampleSize` | `0-255`                | `1`            | -              |
-| `ChangeBit`                   | `0-SampleSize` | `0-7`, (upscale)       | `1`            | -              |
-| `ShuffleBytes *`              | `0-SampleSize` | `0-255` (rand seed)    | `0-SampleSize` | `0-SampleSize` |
-| `CopyPart`                    | `0-SampleSize` | -                      | `0-SampleSize` | `0-SampleSize` |
-| `AddWordFromManualDictionary` | `0-SampleSize` | `0-DictSize` (upscale) | `len(word)`    | -              |
+| Mutation                      | Write Offset   | Byte / Value ID        | Length         | Read Offset    | Base unit ID |
+| ----------------------------- | -------------- | ---------------------- | -------------- | -------------- | -------------|
+| `EraseBytes`                  | `0-SampleSize` | -                      | `0-SampleSize` | `0-SampleSize` |              |
+| `InsertByte`                  | `0-SampleSize` | `0-255`                | `1`            | -              |              |
+| `InsertRepeatedBytes`         | `0-SampleSize` | `0-255`                | `0-SampleSize` | -              |              |
+| `ChangeByte`                  | `0-SampleSize` | `0-255`                | `1`            | -              |              |
+| `ChangeBit`                   | `0-SampleSize` | `0-7`, (upscale)       | `1`            | -              |              |
+| `ShuffleBytes *`              | `0-SampleSize` | `0-255` (rand seed)    | `0-SampleSize` | `0-SampleSize` |              |
+| `CopyPart`                    | `0-SampleSize` | -                      | `0-SampleSize` | `0-SampleSize` |              |
+| `AddWordFromManualDictionary` | `0-SampleSize` | `0-DictSize` (upscale) | `len(word)`    | -              |              |
 
 
 We would also need to record the following values:

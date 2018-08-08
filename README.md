@@ -3,24 +3,23 @@ MFuzz project
 
 ## Data format
 
-Dataset should consist of the vectors containing the following types of values:
+Dataset should consist of the inputs of the following format:
 
-| Mutation                      | Write Offset   | Byte / Value ID        | Length         | Read Offset    | Base unit ID |
-| ----------------------------- | -------------- | ---------------------- | -------------- | -------------- | -------------|
-| `EraseBytes`                  | `0-SampleSize` | -                      | `0-SampleSize` | `0-SampleSize` |              |
-| `InsertByte`                  | `0-SampleSize` | `0-255`                | `1`            | -              |              |
-| `InsertRepeatedBytes`         | `0-SampleSize` | `0-255`                | `0-SampleSize` | -              |              |
-| `ChangeByte`                  | `0-SampleSize` | `0-255`                | `1`            | -              |              |
-| `ChangeBit`                   | `0-SampleSize` | `0-7`, (upscale)       | `1`            | -              |              |
-| `ShuffleBytes *`              | `0-SampleSize` | `0-255` (rand seed)    | `0-SampleSize` | `0-SampleSize` |              |
-| `CopyPart`                    | `0-SampleSize` | -                      | `0-SampleSize` | `0-SampleSize` |              |
-| `AddWordFromManualDictionary` | `0-SampleSize` | `0-DictSize` (upscale) | `len(word)`    | -              |              |
+* Seed ID: `[0-N)` (`N` stands for the total number of seed inputs used)
+* Coverage: `[0-M]` (`M` stands for the highest coverage score reached during fuzzing)
+* Mutation sequence: vector containing `1+` elements of the following format:
 
+| Mutation Type                 | Write Offset   | Byte / Value ID        | Length         | Read Offset    |
+| ----------------------------- | -------------- | ---------------------- | -------------- | -------------- |
+| `EraseBytes`                  | `0-SampleSize` | -                      | `0-SampleSize` | `0-SampleSize` |
+| `InsertByte`                  | `0-SampleSize` | `0-255`                | `1`            | -              |
+| `InsertRepeatedBytes`         | `0-SampleSize` | `0-255`                | `0-SampleSize` | -              |
+| `ChangeByte`                  | `0-SampleSize` | `0-255`                | `1`            | -              |
+| `ChangeBit`                   | `0-SampleSize` | `0-7`, (upscale)       | `1`            | -              |
+| `ShuffleBytes *`              | `0-SampleSize` | `0-255` (rand seed)    | `0-SampleSize` | `0-SampleSize` |
+| `CopyPart`                    | `0-SampleSize` | -                      | `0-SampleSize` | `0-SampleSize` |
+| `AddWordFromManualDictionary` | `0-SampleSize` | `0-DictSize` (upscale) | `len(word)`    | -              |
 
-We would also need to record the following values:
-
-* Seed ID: `0-N`
-* Coverage: `0-M`
 
 
 Multiple mutations can be sequentially applied to the same seed input. Actually, it's encouraged to have long mutation sequences
